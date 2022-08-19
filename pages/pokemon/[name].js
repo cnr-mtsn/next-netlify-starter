@@ -1,30 +1,33 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export default function PokemonPage({ pokemon }) {
+	const pText =
+		pokemon.name === "bulbasaur"
+			? "This page was generated at build time"
+			: "This page was statically generated at request time for your region"
 	return (
-		<div
-			style={{
-				display: "flex",
-				alignItems: "center",
-				margin: "1rem auto",
-				width: "max-content",
-				border: "1px solid #ccc",
-				borderRadius: ".5rem",
-				paddingRight: "2rem",
-			}}>
-			<Image
-				src={pokemon.sprites.front_default}
-				height={200}
-				width={200}
-				alt={pokemon.name}
-				placeholder="blur"
-				blurDataURL={pokemon.sprites.front_default}
-			/>
-			<h1 style={{ textTransform: "capitalize" }}>
-				{pokemon.name}
-				{pokemon.name === "venusaur" && " 🌱"}
-				{pokemon.name === "squirtle" && " 💦"}
-			</h1>
+		<div className="pokemon-page">
+			<div className="pokemon-card">
+				<Image
+					src={pokemon.sprites.front_default}
+					height={200}
+					width={200}
+					alt={pokemon.name}
+					placeholder="blur"
+					blurDataURL={pokemon.sprites.front_default}
+				/>
+				<h1 style={{ textTransform: "capitalize" }}>
+					{pokemon.name}
+					{pokemon.name === "venusaur" && " 🌱"}
+					{pokemon.name === "squirtle" && " 💦"}
+					{/* {pokemon.name.includes("charm") && " 🔥"} */}
+				</h1>
+			</div>
+			<a className="pokemon-page-link" href="/">
+				&lt; Select Page
+			</a>
+			<p>{pText}</p>
 		</div>
 	)
 }
@@ -36,7 +39,7 @@ export async function getStaticPaths() {
 	// return first path only
 	return {
 		paths: [{ params: { name: firstPokemon.name } }],
-		fallback: process.env.NODE_ENV === "production" ? false : "blocking",
+		fallback: "blocking",
 	}
 }
 // use getStaticProps to get pokemon data from the API

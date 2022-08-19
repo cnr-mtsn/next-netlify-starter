@@ -21,7 +21,7 @@ export default function PokemonPage({ pokemon }) {
 					{pokemon.name}
 					{pokemon.name === "venusaur" && " 🌱"}
 					{pokemon.name === "squirtle" && " 💦"}
-					{/* {pokemon.name.includes("char") && " 🔥"} */}
+					{pokemon.name.includes("char") && " 🔥"}
 				</h1>
 			</div>
 			<a className="pokemon-page-link" href="/">

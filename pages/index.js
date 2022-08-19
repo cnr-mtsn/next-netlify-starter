@@ -12,7 +12,11 @@ export default function Home({ pokemon }) {
 
 			<main>
 				<div className="container">
-					<h1>All Pokemon</h1>
+					<h1>Select a Pokemon</h1>
+					<span>
+						Bulbasaur is generated at build time - all others are
+						generated at request time
+					</span>
 					{/* choose a single pokemon from the list and navigate to its page */}
 					{/* create a select component with each pokemon as an option */}
 					<select

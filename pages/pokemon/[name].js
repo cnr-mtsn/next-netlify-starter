@@ -22,7 +22,7 @@ export default function PokemonPage({ pokemon }) {
 			/>
 			<h1 style={{ textTransform: "capitalize" }}>
 				{pokemon.name}
-				{pokemon.name === "bulbasaur" && " 🌱"}
+				{/* {pokemon.name === "bulbasaur" && " 🌱"} */}
 			</h1>
 		</div>
 	)

@@ -21,14 +21,14 @@ export default function Home({ pokemon }) {
 					{/* create a select component with each pokemon as an option */}
 					<select
 						name="pokemon"
-						style={{ textTransform: "capitalize" }}>
+						style={{ textTransform: "capitalize" }}
+						onChange={e => {
+							router.push(`/pokemon/${e.target.value}`)
+						}}>
 						{pokemon.map(p => (
 							<option
 								style={{ textTransform: "capitalize" }}
-								value={p.name}
-								onClick={() =>
-									router.push(`/pokemon/${p.name}`)
-								}>
+								value={p.name}>
 								{p.name}
 							</option>
 						))}

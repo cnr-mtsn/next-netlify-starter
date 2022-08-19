@@ -1,7 +1,6 @@
 import Image from "next/image"
 
 export default function PokemonPage({ pokemon }) {
-	console.log("Pokemon", pokemon)
 	return (
 		<div
 			style={{
@@ -15,11 +14,16 @@ export default function PokemonPage({ pokemon }) {
 			}}>
 			<Image
 				src={pokemon.sprites.front_default}
-				height={100}
-				width={100}
+				height={200}
+				width={200}
 				alt={pokemon.name}
+				placeholder="blur"
+				blurDataURL={pokemon.sprites.front_default}
 			/>
-			<h1 style={{ textTransform: "capitalize" }}>{pokemon.name}</h1>
+			<h1 style={{ textTransform: "capitalize" }}>
+				{pokemon.name}
+				{pokemon.name === "bulbasaur" && " 🌱"}
+			</h1>
 		</div>
 	)
 }

@@ -1,6 +1,4 @@
 import Head from "next/head"
-import Header from "@components/Header"
-import Footer from "@components/Footer"
 import { useRouter } from "next/router"
 
 export default function Home({ pokemon }) {
@@ -13,7 +11,6 @@ export default function Home({ pokemon }) {
 			</Head>
 
 			<main>
-				<Header title="Welcome to my app!" />
 				<div className="container">
 					<h1>All Pokemon</h1>
 					{/* choose a single pokemon from the list and navigate to its page */}
@@ -34,8 +31,6 @@ export default function Home({ pokemon }) {
 					</select>
 				</div>
 			</main>
-
-			<Footer />
 		</div>
 	)
 }

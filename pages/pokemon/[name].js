@@ -21,7 +21,7 @@ export default function PokemonPage({ pokemon }) {
 					{pokemon.name}
 					{pokemon.name === "venusaur" && " 🌱"}
 					{pokemon.name === "squirtle" && " 💦"}
-					{/* {pokemon.name.includes("charm") && " 🔥"} */}
+					{/* {pokemon.name.includes("char") && " 🔥"} */}
 				</h1>
 			</div>
 			<a className="pokemon-page-link" href="/">
@@ -38,6 +38,8 @@ export async function getStaticPaths() {
 	const firstPokemon = results[0]
 	// return first path only
 	return {
+		// the first pokemon page is considered 'critical' - generated at build time
+		// all others are considered 'deferred' - generated at request time
 		paths: [{ params: { name: firstPokemon.name } }],
 		fallback: "blocking",
 	}
